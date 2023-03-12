@@ -1,0 +1,718 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+
+*{
+    font-family: 'Ubuntu', sans-serif;
+}
+
+html{
+    background-color: black;
+    scroll-behavior: smooth;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+html::-webkit-scrollbar{
+    display: none;
+}
+
+
+.a_link{
+    background-color: transparent;
+    color: white;
+    font-size: 23px;
+    padding: 10px;
+    transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
+}
+
+.popup {
+    display: none;
+    align-items: center;
+    text-align: center;
+}
+
+/* use a media query to filter small devices */
+@media only screen and (max-device-width:480px) {
+    /* show the popup */
+    .popup {
+        font-size: 100px;
+        color: orangered;
+        display: block;
+        position:fixed;
+        top:0;
+        left:0;
+        background: black;
+        z-index:5;
+        width:100%;
+        height:100%;
+    }
+}
+
+.mobile_popup{
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-size: 70px;
+}
+
+.mobile_popup_me{
+    color: darkorange;
+    padding-top: 3%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-size: 40px;
+}
+
+.hide-item {
+    background-color: #f66;
+    cursor: pointer;
+}
+
+.cancel
+{
+    display:block;
+    position:absolute;
+    top:3px;
+    right:2px;
+    background:rgb(245,245,245);
+    color:black;
+    height:30px;
+    width:35px;
+    font-size:30px;
+    text-decoration:none;
+    text-align:center;
+    font-weight:bold;
+}
+
+a:link { text-decoration: none; }
+a:visited { text-decoration: none; }
+.a_link:hover {
+    background-color: darkorange;
+    border-radius: 20px;
+    text-underline: darkorange;
+    color: white;
+    text-decoration: underline;
+}
+a:active { text-decoration: none; }
+
+.github{
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    color: white;
+    font-size: 20px;
+    transition-duration: 0.3s;
+    text-align: center;
+}
+
+.git_icon{
+    font-size: 60px;
+    transition-duration: 0.3s
+}
+
+.github:hover, .git_icon:hover{
+    color: darkorange;
+    cursor: pointer;
+}
+
+p{
+    color: white;
+}
+
+.navbar{
+    /*border: 5px solid darkorange;*/
+    background-color: transparent;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+}
+
+.social {
+    background-color: transparent;
+    border-radius: 50px;
+    color: white;
+    font-size: 50px;
+    cursor: pointer;
+    transition-duration: 0.5s;
+}
+
+.social:hover {
+    transition-duration: 0.5s;
+    color: darkorange;
+    transform: translateY(-30px);
+}
+
+.skills{
+    position: relative;
+    text-align: center;
+}
+
+.hobbie{
+    position: relative;
+    text-align: center;
+}
+
+.hobbie2::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    background-image: linear-gradient(180deg, orangered, darkorange);
+    height: 100%;
+    animation: rotBGimg 3s linear infinite;
+    transition: all 0.2s linear;
+}
+
+.hobbie2::after {
+    content: '';
+    background-color: black;
+    inset: 5px;
+    border-radius: 15px;
+}
+
+.languages-font{
+    font-size: 20px;
+}
+
+.web-dev-font{
+
+}
+
+.centered{
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 100%;
+}
+
+.footer{
+    padding: 15px;
+    position: fixed;
+    bottom: 0;
+    display: table;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    background-color: transparent;
+    z-index: 999;
+}
+
+.container{
+    height: 100%;
+}
+
+
+.grid-container_host{
+    padding: 6%;
+    display: grid;
+    grid-template-columns: 70% 30%;
+    grid-template-areas: 'myArea myArea';
+    height: 100%;
+}
+
+.grid-container_hobbies{
+    padding: 9%;
+    display: grid;
+    grid-template-columns: 70% 30%;
+    grid-template-areas: 'myArea myArea';
+}
+
+.grid-container {
+    display: grid;
+    grid-template-areas: 'myArea myArea';
+    gap: 10px;
+    padding: 10px;
+    height: 70%;
+}
+
+
+.border{
+
+}
+
+.grid-education {
+    padding-top: 10%;
+    display: grid;
+    grid-template-areas: 'myArea myArea';
+    height: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.grid-projects {
+    gap: 5%;
+    padding-top: 3%;
+    display: grid;
+    grid-template-areas: 'myArea myArea';
+    height: 70%;
+}
+
+.lang{
+    height: 23px;
+    width: 23px;
+}
+
+.grid-container2 {
+    display: grid;
+    grid-template-areas: 'myArea myArea';
+    padding: 10px;
+    height: 70%;
+}
+
+.title{
+    color: darkorange;
+    font-size: 50px;
+}
+
+.education-title{
+    color: darkorange;
+    font-size: 30px;
+}
+
+.curso{
+    font-size: 25px;
+}
+
+.resume{
+    padding: 20px 20%;
+    text-align: justify;
+}
+
+.education-desc{
+    padding: 20px 35%;
+    text-align: justify;
+}
+
+.bottom2{
+    padding: 20px 25%;
+    text-align: justify;
+}
+
+.bottom_project_desc{
+    padding: 20px;
+    text-align: justify;
+}
+
+.end{
+    color: white;
+    top: 70px;
+    left: 26%;
+    margin-left: auto;
+    margin-right: auto;
+    position: absolute;
+    font-size: 25px;
+    transform: rotate(-90deg);
+}
+
+.start2{
+    color: white;
+    top: 70px;
+    left: 86%;
+    margin-left: auto;
+    margin-right: auto;
+    position: absolute;
+    font-size: 25px;
+    transform: rotate(90deg);
+}
+
+.end2{
+    color: white;
+    top: 70px;
+    left: 8%;
+    margin-left: auto;
+    margin-right: auto;
+    position: absolute;
+    font-size: 25px;
+    transform: rotate(-90deg);
+}
+
+.start{
+    color: white;
+    top: 70px;
+    left: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    position: absolute;
+    font-size: 25px;
+    transform: rotate(90deg);
+}
+
+
+.end, .left{
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.cont{
+    display: grid;
+}
+
+.left{
+    color: orangered;
+    top: 30px;
+    left: 25%;
+    margin-left: auto;
+    margin-right: auto;
+    position: absolute;
+    font-size: 100px;
+    transform: rotate(-90deg);
+}
+
+.right{
+    color: orangered;
+    top: 30px;
+    right: 25%;
+    margin-left: auto;
+    margin-right: auto;
+    position: absolute;
+    font-size: 100px;
+    transform: rotate(90deg);
+}
+
+.left2{
+    color: orangered;
+    top: 30px;
+    left: 7%;
+    margin-left: auto;
+    margin-right: auto;
+    position: absolute;
+    font-size: 100px;
+    transform: rotate(-90deg);
+}
+
+.right2{
+    color: orangered;
+    top: 30px;
+    right: 5%;
+    margin-left: auto;
+    margin-right: auto;
+    position: absolute;
+    font-size: 100px;
+    transform: rotate(90deg);
+}
+
+.sub{
+    font-size: 20px;
+}
+
+.cv_font{
+    color: orangered;
+    font-size: 20px;
+}
+
+.cv_font:hover{
+    transition: 0.5s;
+}
+
+.grid-container > div {
+    text-align: center;
+}
+
+p{
+    margin: 0;
+    padding: 2px;
+}
+
+.oneArea {
+    display: block;
+    position: relative;
+    margin: 40px 0;
+    grid-area: myArea;
+}
+
+.bg_ipb-recicla{
+    background: url('imgs/ipb_recicla-logo.png');
+    background-size: 25%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.bg_estigaming{
+    transition-delay: 1s;
+    background: url('imgs/estigaming.png');
+    background-size: 25%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.bg_estigmail{
+    transition-delay: 1s;
+    background: url('imgs/estigmail_logo.png');
+    background-size: 30%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.bg_procurapp{
+    transition-delay: 1s;
+    background: url('imgs/procuraAPP-logo.png');
+    background-size: 30%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.card {
+    z-index: 1;
+    display: inline-block;
+    box-sizing: border-box;
+    width: 60%;
+    height: 100%;
+    /* From https://css.glass  site b*/
+    background: rgba(253, 127, 32, 0.54);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border: 1px solid rgba(253, 127, 32, 0.51);
+    cursor: pointer;
+    transition: all 0.5s;
+    font-weight: bolder;
+}
+
+
+.card:hover {
+    border: 1px solid black;
+    transform: scale(1.05);
+}
+
+.card:active {
+    transform: scale(0.95) rotateZ(1.7deg);
+}
+
+
+
+.grid_img {
+    width: 100%;
+}
+
+.row{
+    align-items: center;
+    text-align: center;
+    height: 100%;
+}
+
+.golden-leaves{
+    width: 50%;
+    height: 70%;
+}
+
+
+.me{
+    border-radius: 10%;
+    width: 100%;
+    height: 100%;
+    -webkit-animation: mover 2s infinite  alternate;
+    animation: mover 2s infinite  alternate;
+}
+
+.me2{
+    border-radius: 10%;
+    width: 100%;
+    height: 90%;
+    -webkit-animation: mover 2s infinite  alternate;
+    animation: mover 2s infinite  alternate;
+}
+
+img{
+    pointer-events: none;
+    background-color: transparent;
+}
+
+.company_logo{
+    background-color: transparent;
+    height: 40px;
+    width: 50px;
+    transform: rotateY(360deg);
+    animation: rotateAnimation 3s infinite;
+}
+
+.company_logo_larger{
+    height: 40px;
+    width: 110px;
+    transform: rotateY(360deg);
+    animation: rotateAnimation 3s infinite;
+}
+
+@keyframes rotateAnimation {
+    from {transform: rotateY(0deg);}
+    to {transform: rotateY(360deg);}
+}
+
+@-webkit-keyframes mover {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-20px); }
+}
+@keyframes mover {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-20px); }
+}
+
+.s-one{
+    color: white;
+}
+
+.s-two{
+    color: white;
+}
+
+.s-three{
+    color: white;
+}
+
+.s-four{
+    color: white;
+}
+
+.s-five{
+    color: white;
+}
+
+.card-hobbies {
+    width: 70%;
+    height: 254px;
+    position: relative;
+    display: flex;
+    place-content: center;
+    place-items: center;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.text{
+    z-index: 1;
+    color: white;
+    font-size: 2em;
+    text-align: center;
+}
+
+.card-hobbies::before {
+    content: '';
+    position: absolute;
+    width: 30%;
+    background-image: linear-gradient(180deg, orangered, darkorange);
+    height: 200%;
+    animation: rotBGimg 3s linear infinite;
+    transition: all 0.2s linear;
+}
+
+@keyframes rotBGimg {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.card-hobbies::after {
+    content: '';
+    position: absolute;
+    background-color: black;
+    inset: 5px;
+    border-radius: 15px;
+}
+
+/* ---- Animations ---- */
+
+.hidden{
+    opacity: 0;
+    filter: blur(5px);
+    transform: translateX(-100%);
+    transition: all 1s;
+}
+
+.from-left{
+    opacity: 0;
+    filter: blur(5px);
+    transform: translateX(100%);
+    transition: all 1s;
+}
+
+.from-bottom{
+    opacity: 0;
+    filter: blur(5px);
+    transform: translateY(100%);
+    transition: all 1s;
+}
+
+.from-top{
+    opacity: 0;
+    filter: blur(5px);
+    transform: translateY(-100%);
+    transition: all 1s;
+}
+
+.from-3d1{
+    opacity: 0;
+    filter: blur(5px);
+    transform: translate3d(10%, 70%, 200px);
+    transition: all 1s;
+}
+
+.from-3d2{
+    opacity: 0;
+    filter: blur(5px);
+    transform: translate3d(-10%, 70%, 200px);
+    transition: all 1s;
+}
+
+.fade{
+    opacity: 0;
+    filter: blur(5px);
+    transition: all 1s;
+}
+
+button{
+    border: none;
+    background-color: transparent;
+}
+
+.show{
+    opacity: 1;
+    filter: blur(0);
+    transform: translateX(0);
+}
+
+.social:nth-child(2){
+    transition-delay: 300ms;
+}
+.social:nth-child(3){
+    transition-delay: 600ms;
+}
+.social:nth-child(4){
+    transition-delay: 900ms;
+}
+.social:nth-child(5){
+    transition-delay: 1200ms;
+}
+
+.skills:nth-child(2){
+    transition-delay: 300ms;
+}
+
+.skills:nth-child(3){
+    transition-delay: 600ms;
+}
+
+.skills:nth-child(4){
+    transition-delay: 900ms;
+}
+
+.hobbie:nth-child(2){
+    transition-delay: 300ms;
+}
+.hobbie:nth-child(3){
+    transition-delay: 600ms;
+}
+.hobbie:nth-child(4){
+    transition-delay: 900ms;
+}
+
+
+/* -------------------------- */
