@@ -121,7 +121,7 @@ p{
 
 .navbar{
     /*border: 5px solid darkorange;*/
-    background-color: transparent;
+    background-color: black;
     color: white;
     text-align: center;
     padding: 20px;
@@ -198,7 +198,7 @@ p{
     margin-left: auto;
     margin-right: auto;
     width: 100%;
-    background-color: transparent;
+    background-color: black;
     z-index: 999;
 }
 
