@@ -1,0 +1,43 @@
+
+
+<div class="grid-container">
+
+    <button (window:keypress)="projectsEnter($event)"></button>
+
+
+    <div class="grid-cmd" >
+        <div cdkDrag>
+            <img class="cmd" [src]="cmd" /> 
+        </div>
+    </div>
+
+    <div class="grid-folder">
+        <div class="container" cdkDrag>
+            <img class="folder" [src]="folder" /> 
+            <div class="folder-btn">
+                <button class="square-button">
+                    <img class="small-img" [src]="folderWork"/><br/>
+                    <span class="button-text">Professional Experience</span>
+                </button>
+                <button class="square-button">
+                    <img class="small-img" [src]="folderEducation"/><br/>
+                    <span class="button-text">Education</span>
+                </button>
+            </div>
+        </div>
+    </div>  
+
+    <div class="grid-notepad">
+        <div class="container" cdkDrag>
+            <img class="notepad" [src]="notepad" /> 
+            <div class="notepad-txt">
+                <p>- Fábio Gonçalves</p>
+                <p>- 11/04/1998</p>
+                <p>- Computer Science</p>
+            </div>
+        </div>
+    </div>
+
+  </div>
+
+ 
