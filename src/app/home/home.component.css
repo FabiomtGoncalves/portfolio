@@ -1,23 +1,10 @@
 
-*{
-    font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
-}
+
 
 img{
     border-radius: 5px;
 }
 
-.cmd{
-    width: 50%;
-}
-
-.folder{
-    width: 80%;
-}
-
-.notepad{
-    width: 90%;
-}
 
 .container {
     position: relative;
@@ -34,27 +21,13 @@ img{
     font-size: 17px;
 }
 
-.folder-btn {
-    position: absolute;
-    top: 0;
-    padding-top: 15%;
-    padding-left: 25%;
-}
 
+.hiddenBtn{
+    display: none;
+}
 
 .folderWork{
     width: 30px;
-}
-
-.square-button {
-    background-color: transparent;
-    border: none;
-    width: 100px;
-    color: white;
-}
-
-.small-img {
-    max-width: 80px;
 }
 
 img{
@@ -72,17 +45,14 @@ img{
       'cmd cmd cmd cmd cmd notepad'
       'folder folder folder folder folder notepad';
     gap: 10px;
-    padding: 10px;
+    padding-top: 40px;
+    padding-left: 300px;
+    padding-right: 400px;
   }
   
 .grid-container > div {
-    /*background-color: rgba(255, 255, 255, 0.8);*/
     text-align: center;
     padding: 20px 0;
     font-size: 30px;
 }
 
-button:hover {
-    background-color: #7a7976;
-    border-radius: 5px;
-}

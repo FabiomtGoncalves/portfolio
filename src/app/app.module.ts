@@ -7,6 +7,9 @@ import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
 import { CmdComponent } from './cmd/cmd.component';
 import {CdkDrag} from '@angular/cdk/drag-drop';
+import { FolderComponent } from './folder/folder.component';
+import { NotepadComponent } from './notepad/notepad.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -14,12 +17,15 @@ import {CdkDrag} from '@angular/cdk/drag-drop';
     AppComponent,
     HomeComponent,
     FooterComponent,
-    CmdComponent
+    CmdComponent,
+    FolderComponent,
+    NotepadComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    CdkDrag
+    CdkDrag,
+    FormsModule,
   ],
   providers: [
     provideClientHydration()

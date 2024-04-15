@@ -7,4 +7,6 @@ import { Component } from '@angular/core';
 })
 export class CmdComponent {
 
+  cmd: string = "assets/imgs/cmd-en.png";
+
 }

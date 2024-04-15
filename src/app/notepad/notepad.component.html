@@ -1,0 +1,10 @@
+
+<div class="container">
+    <img class="notepad" [src]="notepad" /> 
+    <div class="input-text">
+        <textarea [(ngModel)]="text"></textarea>
+    </div>
+    <div class="char-count">
+        <p>{{text.length}} characters</p>
+    </div>
+</div>

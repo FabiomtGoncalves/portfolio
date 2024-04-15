@@ -1,0 +1,49 @@
+/*div{
+    background-color: red;
+}*/
+
+.container {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+}
+  
+  
+.input-text{
+    position: absolute;
+    top: 14%;
+    width: 100%;
+    height: 78%;
+    background-color: transparent;
+    color: white;
+    text-align: center;
+}
+
+textarea{
+    font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
+    width: 485px;
+    height: 100%;
+    background-color: transparent;
+    border: none;
+    color: white;
+}
+
+textarea:focus, textarea:active, textarea:hover{
+    outline: none !important;
+    border: none;
+    box-shadow: none;
+}
+
+.char-count{
+    margin: auto;
+    font-size: 13px;
+    position: absolute;
+    bottom: 0.6%;
+    left: 24%;
+    color: #c4c6c6;
+    text-align: center;
+}
+
+p{
+    background-color: #1a2224;
+}

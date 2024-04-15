@@ -1,0 +1,51 @@
+
+
+button:hover {
+    background-color: rgba(91, 95, 102, .4);
+    border-radius: 5px;
+}
+
+.small-img {
+    max-width: 80px;
+}
+
+.pdf-img{
+    max-width: 60px;
+    padding: 7px;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+}
+  
+  
+.square-button{
+    position: absolute;
+    top: 30%;
+    background-color: #555;
+    background-color: transparent;
+    border: none;
+    width: 100px;
+    color: white;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.btn1{
+    left: 40%;
+}
+
+.btn2{
+    left: 65%;
+}
+
+.btn3{
+    left: 90%;
+
+}
+
+.btns-align{
+    display: inline;
+}
