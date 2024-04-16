@@ -7,6 +7,7 @@ footer{
     width:100%;
     background-color: rgba(9, 20, 38, 0.9);
     box-shadow: inset 0 12px 10px -15px rgba(255, 255, 255, 0.8);
+    z-index: 100;
 }
 
 .center{
@@ -57,3 +58,5 @@ img{
 .folder-icon{
     width: 30px;
 }
+
+

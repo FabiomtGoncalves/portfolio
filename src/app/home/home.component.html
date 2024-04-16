@@ -1,27 +1,43 @@
 
+<div class="container">
 
-<div class="grid-container">
+    <button class="square-button recycle">
+        <img class="small-img" [src]="recycle"/><br/>
+        <span>Recycle Bin</span>
+    </button>
 
-    <!--<button class="hiddenBtn" type="hidden" (window:keypress)="projectsEnter($event)"></button>-->
+    <button class="square-button notepad" (click)="open('notepad')">
+        <img class="notepad-icon" [src]="notepad"/><br/>
+        <span>Untitled</span>
+    </button>
 
-    <div class="grid-cmd" id="grid-cmd">
-        <div id="cmd" cdkDrag (cdkDragStarted)="cmdDrag()">
-            <app-cmd></app-cmd>
+    <button class="square-button cmd" (click)="open('cmd')">
+        <img class="small-img" [src]="cmd"/><br/>
+        <span>cmd</span>
+    </button>
+
+    <button class="square-button folder" (click)="open('folder')">
+        <img class="small-img" [src]="folder"/><br/>
+        <span>About me</span>
+    </button>
+
+    <div class="grid-container">
+        <!--<button class="hiddenBtn" type="hidden" (window:keypress)="projectsEnter($event)"></button>-->
+    
+        <div class="grid-cmd" id="grid-cmd" cdkDrag (cdkDragStarted)="dragIndex('2', '1', '1')" (click)="dragIndex('2', '1', '1')">
+            <app-cmd class="cima" *ngIf="this._portfolioService.cmdWindow"></app-cmd>
         </div>
-    </div>
-
-    <div class="grid-folder" id="grid-folder">
-        <div id="folder" cdkDrag (cdkDragStarted)="folderDrag()">
-            <app-folder></app-folder>
+    
+        <div class="grid-folder" id="grid-folder" cdkDrag (cdkDragStarted)="dragIndex('1', '1', '2')" (click)="dragIndex('1', '1', '2')">
+            <app-folder *ngIf="this._portfolioService.folderWindow"></app-folder>
+        </div>  
+    
+        <div class="grid-notepad" id="grid-notepad" cdkDrag (cdkDragStarted)="dragIndex('1', '2', '1')" (click)="dragIndex('1', '2', '1')">
+            <app-notepad *ngIf="this._portfolioService.notepadWindow"></app-notepad>
         </div>
-    </div>  
-
-    <div class="grid-notepad" id="grid-notepad">
-        <div id="notepad" cdkDrag (cdkDragStarted)="notepadDrag()">
-            <app-notepad></app-notepad>
-        </div>
+    
     </div>
 
 </div>
 
- 
+

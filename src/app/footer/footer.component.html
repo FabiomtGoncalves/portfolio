@@ -6,15 +6,15 @@
                 <img [src]="windows"/><br/>
             </button>
 
-            <button>
+            <button *ngIf="this._portfolioService.cmdWindow" (click)="this._home.dragIndex('2', '1', '1')">
                 <img [src]="cmd"/><br/>
             </button>
 
-            <button>
+            <button *ngIf="this._portfolioService.folderWindow" (click)="this._home.dragIndex('1', '1', '2')">
                 <img class="folder-icon" [src]="folder"/><br/>
             </button>
 
-            <button>
+            <button *ngIf="this._portfolioService.notepadWindow" (click)="this._home.dragIndex('1', '2', '1')">
                 <img class="icon" [src]="notepad"/><br/>
             </button>
 

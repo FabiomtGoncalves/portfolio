@@ -4,6 +4,9 @@
     <div class="input-text">
         <textarea [(ngModel)]="text"></textarea>
     </div>
+    <div class="closeBtn">
+        <button (click)="this._home.close('notepad')">X</button>
+    </div>
     <div class="char-count">
         <p>{{text.length}} characters</p>
     </div>

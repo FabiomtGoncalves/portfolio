@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
 import { CmdComponent } from './cmd/cmd.component';
-import {CdkDrag} from '@angular/cdk/drag-drop';
+import { CdkDrag } from '@angular/cdk/drag-drop';
 import { FolderComponent } from './folder/folder.component';
 import { NotepadComponent } from './notepad/notepad.component';
 import { FormsModule } from '@angular/forms';
@@ -28,7 +28,8 @@ import { FormsModule } from '@angular/forms';
     FormsModule,
   ],
   providers: [
-    provideClientHydration()
+    provideClientHydration(),
+    HomeComponent,
   ],
   bootstrap: [AppComponent]
 })

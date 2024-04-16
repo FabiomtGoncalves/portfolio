@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { HomeComponent } from '../home/home.component';
 
 @Component({
   selector: 'app-folder',
@@ -12,5 +13,7 @@ export class FolderComponent {
   folderWork: string = "assets/imgs/folder-work.png";
   folderEducation: string = "assets/imgs/folder-education.png";
   pdf: string = "assets/imgs/pdf.png";
+
+  constructor(public _home: HomeComponent) { }
 
 }

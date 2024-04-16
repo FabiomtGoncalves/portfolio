@@ -1,5 +1,7 @@
 import { formatDate } from '@angular/common';
 import { Component } from '@angular/core';
+import { PortfolioserviceService } from '../portfolioservice.service';
+import { HomeComponent } from '../home/home.component';
 
 @Component({
   selector: 'app-footer',
@@ -7,6 +9,8 @@ import { Component } from '@angular/core';
   styleUrl: './footer.component.css'
 })
 export class FooterComponent {
+
+  constructor(public _portfolioService: PortfolioserviceService, public _home: HomeComponent) { }
 
   windows: string = "assets/imgs/w11-logo.png";
   cmd: string = "assets/imgs/cmd-icon.png";

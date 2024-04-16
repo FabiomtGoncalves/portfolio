@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { HomeComponent } from '../home/home.component';
 
 @Component({
   selector: 'app-notepad',
@@ -10,5 +11,7 @@ export class NotepadComponent {
   notepad: string = "assets/imgs/notepad.png";
 
   text = "- Fábio Gonçalves\n\n- 11/04/1998\n\n- Computer Science";
+
+  constructor(public _home: HomeComponent) { }
 
 }

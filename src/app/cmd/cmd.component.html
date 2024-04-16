@@ -1,3 +1,27 @@
-<div>
+<div class="container">
   <img class="cmd" [src]="cmd" /> 
+  <div class="closeBtn">
+    <button class="close-btn" (click)="this._home.close('cmd')">X</button>
+  </div>
+  <div class="cmd-text">
+    <p>C:\Users\Fábio> show projects</p>
+    <h1>Projects</h1>
+    <a href="https://github.com/FabiomtGoncalves/GameGuess" target="_blank">> <b>GameGuess</b> [Game: Guess the video game title]</a> <br/>
+    <a href="https://github.com/FabiomtGoncalves/ESTIGaming" target="_blank">> <b>ESTIGaming</b> [Digital videogame key's store]</a> <br/>
+    <a href="https://github.com/FabiomtGoncalves/Angular-SpringBoot" target="_blank">> Simple Full Stack APP [ w/ Angular & SpringBoot]</a> <br/><br/>
+    <a href="https://github.com/FabiomtGoncalves" target="_blank">> More projects on my Github</a> 
+
+    <p class="success">Projects loaded with success . . .</p>
+
+    <div class="inline">
+      <p class="inline">C:\Users\Fábio> </p>
+      <form class="inline" (submit)="cmdInput()">
+        <input [(ngModel)]="command" type="text" name="cmd-input" id="cmd-input" autocomplete="off" autofocus>
+      </form>
+      
+    </div>
+    
+    <p class="cmdMessage">{{cmdMessage}}</p>
+
+  </div>
 </div>

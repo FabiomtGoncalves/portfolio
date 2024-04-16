@@ -1,5 +1,5 @@
-import { CdkDragEnd, CdkDragStart } from '@angular/cdk/drag-drop';
 import { Component } from '@angular/core';
+import { PortfolioserviceService } from '../portfolioservice.service';
 
 @Component({
   selector: 'app-home',
@@ -8,6 +8,21 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
   
+  folder: string = "assets/imgs/w-folder.png";
+  recycle: string = "assets/imgs/bin-empty.webp";
+  cmd: string = "assets/imgs/cmd-icon.png";
+  notepad: string = "assets/imgs/notepad-icon.png";
+
+  constructor(public _portfolioService: PortfolioserviceService) { }
+
+  /*@HostListener('document:click', ['$event'])
+  public documentClick(event: Event): void {
+    let audio = new Audio();
+    this.audio.src = "assets/sound/mouse_click.mp3";
+    this.audio.load();
+    this.audio.play();
+  }*/
+
   /*projectsEnter(event: any){
     //console.log("CODE: " + event.keyCode);
     if(event.keyCode===13){
@@ -17,22 +32,39 @@ export class HomeComponent {
    }*/
   
 
-  cmdDrag() {
-    document.getElementById("grid-cmd").style.zIndex = "2";
-    document.getElementById("grid-notepad").style.zIndex = "1";
-    document.getElementById("grid-folder").style.zIndex = "1";
+  dragIndex(cmd: string, notepad: string, folder: string){
+    document.getElementById("grid-cmd").style.zIndex = cmd;
+    document.getElementById("grid-notepad").style.zIndex = notepad;
+    document.getElementById("grid-folder").style.zIndex = folder;
   }
 
-  notepadDrag() {
-    document.getElementById("grid-notepad").style.zIndex = "2";
-    document.getElementById("grid-cmd").style.zIndex = "1";
-    document.getElementById("grid-folder").style.zIndex = "1";
+
+  close(btn: string){
+    switch(btn){
+      case "cmd":
+        this._portfolioService.cmdWindow = false;
+        break;
+      case "notepad":
+        this._portfolioService.notepadWindow = false;
+        break;
+      case "folder":
+        this._portfolioService.folderWindow = false;
+        break;
+    }
   }
 
-  folderDrag() {
-    document.getElementById("grid-folder").style.zIndex = "2";
-    document.getElementById("grid-notepad").style.zIndex = "1";
-    document.getElementById("grid-cmd").style.zIndex = "1";
+  open(btn: string){
+    switch(btn){
+      case "cmd":
+        this._portfolioService.cmdWindow = true;
+        break;
+      case "notepad":
+        this._portfolioService.notepadWindow = true;
+        break;
+      case "folder":
+        this._portfolioService.folderWindow = true;
+        break;
+    }
   }
 
 }
