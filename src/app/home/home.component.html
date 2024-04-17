@@ -25,15 +25,21 @@
         <!--<button class="hiddenBtn" type="hidden" (window:keypress)="projectsEnter($event)"></button>-->
     
         <div class="grid-cmd" id="grid-cmd" cdkDrag (cdkDragStarted)="dragIndex('2', '1', '1')" (click)="dragIndex('2', '1', '1')">
-            <app-cmd class="cima" *ngIf="this._portfolioService.cmdWindow"></app-cmd>
+            <div [@pulse]="cmdAnimation">
+                <app-cmd class="cima" *ngIf="this._portfolioService.cmdWindow"></app-cmd>
+            </div>
         </div>
     
         <div class="grid-folder" id="grid-folder" cdkDrag (cdkDragStarted)="dragIndex('1', '1', '2')" (click)="dragIndex('1', '1', '2')">
-            <app-folder *ngIf="this._portfolioService.folderWindow"></app-folder>
+            <div [@pulse]="folderAnimation">
+                <app-folder *ngIf="this._portfolioService.folderWindow"></app-folder>
+            </div>
         </div>  
     
         <div class="grid-notepad" id="grid-notepad" cdkDrag (cdkDragStarted)="dragIndex('1', '2', '1')" (click)="dragIndex('1', '2', '1')">
-            <app-notepad *ngIf="this._portfolioService.notepadWindow"></app-notepad>
+            <div [@pulse]="notepadAnimation">
+                <app-notepad *ngIf="this._portfolioService.notepadWindow"></app-notepad>
+            </div>
         </div>
     
     </div>

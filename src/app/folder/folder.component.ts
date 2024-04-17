@@ -16,4 +16,8 @@ export class FolderComponent {
 
   constructor(public _home: HomeComponent) { }
 
+  openCV(){
+    window.open("assets/files/FabioGoncalves_CV_en.pdf", '_blank');
+  }
+
 }

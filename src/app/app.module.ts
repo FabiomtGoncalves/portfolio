@@ -10,6 +10,7 @@ import { CdkDrag } from '@angular/cdk/drag-drop';
 import { FolderComponent } from './folder/folder.component';
 import { NotepadComponent } from './notepad/notepad.component';
 import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import { FormsModule } from '@angular/forms';
     AppRoutingModule,
     CdkDrag,
     FormsModule,
+    BrowserAnimationsModule
   ],
   providers: [
     provideClientHydration(),

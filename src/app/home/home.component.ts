@@ -1,14 +1,44 @@
 import { Component } from '@angular/core';
 import { PortfolioserviceService } from '../portfolioservice.service';
-import { CdkDragEnd, CdkDragStart } from '@angular/cdk/drag-drop';
+import { CdkDragStart } from '@angular/cdk/drag-drop';
+import { pulseAnimation } from 'angular-animations';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrl: './home.component.css'
+  styleUrl: './home.component.css',
+  animations: [
+    pulseAnimation({ anchor: 'pulse' }),
+  ]
 })
 export class HomeComponent {
   
+  cmdAnimation: boolean;
+  folderAnimation: boolean;
+  notepadAnimation: boolean;
+
+
+  cmdAnimate() {
+    this.cmdAnimation = false;
+    setTimeout(() => {
+      this.cmdAnimation = true;
+    }, 1);
+  }
+
+  folderAnimate() {
+    this.folderAnimation = false;
+    setTimeout(() => {
+      this.folderAnimation = true;
+    }, 1);
+  }
+
+  notepadAnimate() {
+    this.notepadAnimation = false;
+    setTimeout(() => {
+      this.notepadAnimation = true;
+    }, 1);
+  }
+
   folder: string = "assets/imgs/w-folder.png";
   recycle: string = "assets/imgs/bin-empty.webp";
   cmd: string = "assets/imgs/cmd-icon.png";
@@ -69,12 +99,18 @@ export class HomeComponent {
     switch(btn){
       case "cmd":
         this._portfolioService.cmdWindow = true;
+        this.dragIndex('2', '1', '1');
+        this.cmdAnimate();
         break;
       case "notepad":
         this._portfolioService.notepadWindow = true;
+        this.dragIndex('1', '2', '1');
+        this.notepadAnimate();
         break;
       case "folder":
         this._portfolioService.folderWindow = true;
+        this.dragIndex('1', '1', '2');
+        this.folderAnimate();
         break;
     }
   }
