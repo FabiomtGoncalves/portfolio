@@ -1,24 +1,24 @@
 
 <div class="container">
 
-    <button class="square-button recycle">
-        <img class="small-img" [src]="recycle"/><br/>
-        <span>Recycle Bin</span>
+    <button *ngIf="folderShow" id="folder" class="square-button recycle" (click)="open('folder')"  (cdkDragEnded)="onDrag('folder')" cdkDrag>
+        <img class="small-img" [src]="folder"/><br/>
+        <span>About me</span>
     </button>
 
-    <button class="square-button notepad" (click)="open('notepad')">
+    <button *ngIf="notepadShow" id="notepad" class="square-button notepad" (click)="open('notepad')" (cdkDragEnded)="onDrag('notepad')" cdkDrag>
         <img class="notepad-icon" [src]="notepad"/><br/>
         <span>Untitled</span>
     </button>
 
-    <button class="square-button cmd" (click)="open('cmd')">
+    <button *ngIf="cmdShow" id="cmd" class="square-button cmd" (click)="open('cmd')" (cdkDragEnded)="onDrag('cmd')" cdkDrag>
         <img class="small-img" [src]="cmd"/><br/>
         <span>cmd</span>
     </button>
 
-    <button class="square-button folder" (click)="open('folder')">
-        <img class="small-img" [src]="folder"/><br/>
-        <span>About me</span>
+    <button id="bin" class="square-button folder" (cdkDragStarted)="getCord($event)" cdkDrag>
+        <img class="small-img" [src]="recycle"/><br/>
+        <span>Recycle Bin</span>
     </button>
 
     <div class="grid-container">
