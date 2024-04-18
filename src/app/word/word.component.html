@@ -1,0 +1,46 @@
+
+<div class="container">
+    <img class="folder" [src]="word" /> 
+    <div class="closeBtn">
+        <button class="btnClose" (click)="this._home.close('wordEducation')">X</button>
+    </div>
+    
+    <div class="center-doc">
+        <cdk-virtual-scroll-viewport id="commands" itemSize="99999" class="example-viewport">
+            <h1>Education</h1> <br/>
+            <img class="estig" [src]="estig" /> 
+            <div class="pad">
+                <p class="school">Superior School of Technology and Management, Beja, Portugal</p>
+                <span>October 2019 - September 2023</span>
+                <p>Bachelor's Degree | <b>Computer Science</b></p>
+            </div>
+
+            <br/>
+            <hr/> 
+            <br/>
+
+            <img class="estig" [src]="estig" /> 
+            <div class="pad">
+                <p class="school">Superior School of Technology and Management, Beja, Portugal</p>
+                <span>July 2017 - August 2019</span>
+                <p>Associate Degree | <b>Computer Network and Information Systems</b></p>
+            </div>
+
+            <br/>
+            <hr/> 
+            <br/>
+
+            <img class="estig" [src]="etla" /> 
+            <div class="pad">
+                <p class="school">Technological School of the Alentejo Coast, Sines, Portugal</p>
+                <span>September 2013 - July 2016</span>
+                <p>Professional Course | <b>IT Management</b></p>
+            </div>
+
+            <br/>
+
+        </cdk-virtual-scroll-viewport>
+
+    </div>
+
+</div>

@@ -72,5 +72,13 @@ button:hover{
     color: #c42b1c;
 }
 
-
+.example-viewport {
+    height: 300px;
+    width: 97.5%;
+  }
+  
+.example-item {
+    color: white;
+    height: 50px;
+}
 

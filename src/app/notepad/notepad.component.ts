@@ -10,7 +10,7 @@ export class NotepadComponent {
 
   notepad: string = "assets/imgs/notepad.png";
 
-  text = "- Fábio Gonçalves\n\n- 11/04/1998\n\n- Computer Science";
+  text = "- Fábio Gonçalves\n\n- 11/04/1998\n\n- Computer Science\n\n- Software Developer\n\n- ";
 
   constructor(public _home: HomeComponent) { }
 

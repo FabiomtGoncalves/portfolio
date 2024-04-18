@@ -5,18 +5,15 @@
         <button class="btnClose" (click)="this._home.close('folder')">X</button>
       </div>
     <button class="square-button btn1">
-        <img class="small-img" [src]="folderWork"/><br/>
+        <img class="doc-img" [src]="word"/><br/>
         <span>Professional Experience</span>
     </button>
-    <button class="square-button btn2"> 
-        <img class="small-img" [src]="folderEducation"/><br/>
+    <button class="square-button btn2" (click)="this._home.open('wordEducation')"> 
+        <img class="doc-img" [src]="word"/><br/>
         <span>Education</span>
     </button>
-    <!--<a href="../../assets/files/FabioGoncalves_CV_en.pdf" target="_blank">-->
-        <!--<a href="https://fabiomtgoncalves.github.io/portfolio-old/files/FabioGoncalves_CV_en.pdf" target="_blank">-->
-        <button class="square-button btn3" (click)="openCV()">
-            <img class="pdf-img" [src]="pdf"/><br/>
-            <span>CV</span>
-        </button>
-    <!--</a>-->
+    <button class="square-button btn3" (click)="openCV()">
+        <img class="pdf-img" [src]="pdf"/><br/>
+        <span>CV</span>
+    </button>
 </div>

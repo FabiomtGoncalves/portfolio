@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { PortfolioserviceService } from '../portfolioservice.service';
 import { CdkDragStart } from '@angular/cdk/drag-drop';
 import { pulseAnimation } from 'angular-animations';
+import { formatDate } from '@angular/common';
 
 @Component({
   selector: 'app-home',
@@ -16,6 +17,7 @@ export class HomeComponent {
   cmdAnimation: boolean;
   folderAnimation: boolean;
   notepadAnimation: boolean;
+  wordEducationAnimation: boolean;
 
 
   cmdAnimate() {
@@ -39,6 +41,14 @@ export class HomeComponent {
     }, 1);
   }
 
+  wordEducationAnimate() {
+    this.wordEducationAnimation = false;
+    setTimeout(() => {
+      this.wordEducationAnimation = true;
+    }, 1);
+  }
+
+
   folder: string = "assets/imgs/w-folder.png";
   recycle: string = "assets/imgs/bin-empty.webp";
   cmd: string = "assets/imgs/cmd-icon.png";
@@ -53,12 +63,27 @@ export class HomeComponent {
   recycleBinCoordinates = {x: 0, y: 0};
   extimatedCoordinates = {x: 0, y: 0};
 
+  windows: string = "assets/imgs/w11-logo.png";
+  cmdIcon: string = "assets/imgs/cmd-icon.png";
+  folderIcon: string = "assets/imgs/w-folder.png";
+  notepadIcon: string = "assets/imgs/notepad-icon.png";
+  wordIcon: string = "assets/imgs/wordIcon.png";
+
+  date = formatDate(new Date(), 'dd/MM/yyyy', 'en');
+  date2 = new Date();
+
+  minutes = this.date2.getMinutes();
+  formatMinutes = this.minutes > 9 ? this.minutes : '0' + this.minutes;
+  time = new Date().getHours() + ':' + this.formatMinutes;
+
+
   constructor(public _portfolioService: PortfolioserviceService) { }
   
-  dragIndex(cmd: string, notepad: string, folder: string){
+  dragIndex(cmd: string, notepad: string, folder: string, wordEdu: string){
     document.getElementById("grid-cmd").style.zIndex = cmd;
     document.getElementById("grid-notepad").style.zIndex = notepad;
     document.getElementById("grid-folder").style.zIndex = folder;
+    document.getElementById("wordEducation").style.zIndex = wordEdu;
   }
 
 
@@ -74,6 +99,8 @@ export class HomeComponent {
         break;
       case "folder":
         this._portfolioService.folderWindow = false;
+        this._portfolioService.wordEducation = false;
+        this._portfolioService.wordExperience = false;
         this.folderShow = false;
         break;
     }
@@ -85,13 +112,19 @@ export class HomeComponent {
     switch(btn){
       case "cmd":
         this._portfolioService.cmdWindow = false;
-        break;
+      break;
       case "notepad":
         this._portfolioService.notepadWindow = false;
-        break;
+      break;
       case "folder":
         this._portfolioService.folderWindow = false;
-        break;
+      break;
+      case "wordEducation":
+        this._portfolioService.wordEducation = false;
+      break;
+      case "wordExperience":
+        this._portfolioService.wordExperience = false;
+      break;
     }
   }
 
@@ -99,19 +132,24 @@ export class HomeComponent {
     switch(btn){
       case "cmd":
         this._portfolioService.cmdWindow = true;
-        this.dragIndex('2', '1', '1');
+        this.dragIndex('2', '1', '1', '1');
         this.cmdAnimate();
-        break;
+      break;
       case "notepad":
         this._portfolioService.notepadWindow = true;
-        this.dragIndex('1', '2', '1');
+        this.dragIndex('1', '2', '1', '1');
         this.notepadAnimate();
-        break;
+      break;
       case "folder":
         this._portfolioService.folderWindow = true;
-        this.dragIndex('1', '1', '2');
+        this.dragIndex('1', '1', '2', '1');
         this.folderAnimate();
-        break;
+      break;
+      case "wordEducation":
+        this.dragIndex('1', '1', '1', '2');
+        this._portfolioService.wordEducation = true;
+        this.wordEducationAnimate();
+      break;
     }
   }
 
@@ -168,4 +206,6 @@ export class HomeComponent {
     }
    }*/
   
+
+
 }

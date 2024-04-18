@@ -1,5 +1,14 @@
 
+
+
 <div class="container">
+
+    <div class="wordEducation" id="wordEducation" (cdkDragStarted)="dragIndex('1', '1', '1', '2')" (click)="dragIndex('1', '1', '1', '2')" cdkDrag>
+        <div [@pulse]="wordEducationAnimation">
+            <app-word *ngIf="this._portfolioService.wordEducation"></app-word>
+        </div>
+    </div>
+    
 
     <button *ngIf="folderShow" id="folder" class="square-button recycle" (click)="open('folder')"  (cdkDragEnded)="onDrag('folder')" cdkDrag>
         <img class="small-img" [src]="folder"/><br/>
@@ -24,19 +33,19 @@
     <div class="grid-container">
         <!--<button class="hiddenBtn" type="hidden" (window:keypress)="projectsEnter($event)"></button>-->
     
-        <div class="grid-cmd" id="grid-cmd" cdkDrag (cdkDragStarted)="dragIndex('2', '1', '1')" (click)="dragIndex('2', '1', '1')">
+        <div class="grid-cmd" id="grid-cmd" cdkDrag (cdkDragStarted)="dragIndex('2', '1', '1', '1')" (click)="dragIndex('2', '1', '1', '1')">
             <div [@pulse]="cmdAnimation">
                 <app-cmd class="cima" *ngIf="this._portfolioService.cmdWindow"></app-cmd>
             </div>
         </div>
-    
-        <div class="grid-folder" id="grid-folder" cdkDrag (cdkDragStarted)="dragIndex('1', '1', '2')" (click)="dragIndex('1', '1', '2')">
+
+        <div class="grid-folder" id="grid-folder" cdkDrag (cdkDragStarted)="dragIndex('1', '1', '2', '1')" (click)="dragIndex('1', '1', '2', '1')">
             <div [@pulse]="folderAnimation">
                 <app-folder *ngIf="this._portfolioService.folderWindow"></app-folder>
             </div>
         </div>  
     
-        <div class="grid-notepad" id="grid-notepad" cdkDrag (cdkDragStarted)="dragIndex('1', '2', '1')" (click)="dragIndex('1', '2', '1')">
+        <div class="grid-notepad" id="grid-notepad" cdkDrag (cdkDragStarted)="dragIndex('1', '2', '1', '1')" (click)="dragIndex('1', '2', '1', '1')">
             <div [@pulse]="notepadAnimation">
                 <app-notepad *ngIf="this._portfolioService.notepadWindow"></app-notepad>
             </div>
@@ -46,4 +55,40 @@
 
 </div>
 
+<footer class="inline">
+    <div class="inline">
+        <div class="center inline">
 
+            <button class="footer-button">
+                <img class="footer-img" [src]="windows"/><br/>
+            </button>
+
+            <button class="footer-button" *ngIf="this._portfolioService.cmdWindow" (click)="open('cmd')">
+                <img class="footer-img" [src]="cmdIcon"/><br/>
+            </button>
+
+            <button class="footer-button" *ngIf="this._portfolioService.folderWindow" (click)="open('folder')">
+                <img class="folder-icon footer-img" [src]="folderIcon"/><br/>
+            </button>
+
+            <button class="footer-button" *ngIf="this._portfolioService.notepadWindow" (click)="open('notepad')">
+                <img class="icon footer-img" [src]="notepadIcon"/><br/>
+            </button>
+
+            <button class="footer-button" *ngIf="this._portfolioService.wordEducation" (click)="open('wordEducation')">
+                <img class="footer-img" [src]="wordIcon"/><br/>
+            </button>
+
+            <button class="footer-button" *ngIf="this._portfolioService.wordExperience" (click)="open('wordExperience')">
+                <img class="footer-img" [src]="wordIcon"/><br/>
+            </button>
+
+        </div>
+    </div>
+
+    <div class="time">
+        {{time}}<br/>
+        {{date}}
+    </div>
+
+</footer>

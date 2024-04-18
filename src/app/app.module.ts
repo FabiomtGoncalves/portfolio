@@ -11,6 +11,8 @@ import { FolderComponent } from './folder/folder.component';
 import { NotepadComponent } from './notepad/notepad.component';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {ScrollingModule} from '@angular/cdk/scrolling';
+import { WordComponent } from './word/word.component';
 
 
 @NgModule({
@@ -20,14 +22,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FooterComponent,
     CmdComponent,
     FolderComponent,
-    NotepadComponent
+    NotepadComponent,
+    WordComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     CdkDrag,
     FormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ScrollingModule,
   ],
   providers: [
     provideClientHydration(),

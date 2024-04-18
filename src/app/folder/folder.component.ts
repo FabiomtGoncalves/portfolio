@@ -13,6 +13,7 @@ export class FolderComponent {
   folderWork: string = "assets/imgs/folder-work.png";
   folderEducation: string = "assets/imgs/folder-education.png";
   pdf: string = "assets/imgs/pdf.png";
+  word: string = "assets/imgs/word-doc.png";
 
   constructor(public _home: HomeComponent) { }
 
