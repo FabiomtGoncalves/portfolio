@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { PortfolioserviceService } from '../portfolioservice.service';
 import { CdkDragStart } from '@angular/cdk/drag-drop';
 import { pulseAnimation } from 'angular-animations';
@@ -12,14 +12,49 @@ import { formatDate } from '@angular/common';
     pulseAnimation({ anchor: 'pulse' }),
   ]
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit{
   
+  folder: string = "assets/imgs/w-folder.png";
+  recycle: string = "assets/imgs/bin-empty.webp";
+  cmd: string = "assets/imgs/cmd-icon.png";
+  notepad: string = "assets/imgs/notepad-icon.png";
+
+  recycleSound: string = "assets/sound/recycle.mp3";
+
+  cmdShow: boolean = true;
+  folderShow: boolean = true;
+  notepadShow: boolean = true;
+
+  recycleBinCoordinates = {x: 0, y: 0};
+  extimatedCoordinates = {x: 0, y: 0};
+  itemFromBin = {x: 0, y: 0};
+
+  windows: string = "assets/imgs/w11-logo.png";
+  cmdIcon: string = "assets/imgs/cmd-icon.png";
+  folderIcon: string = "assets/imgs/w-folder.png";
+  notepadIcon: string = "assets/imgs/notepad-icon.png";
+  wordIcon: string = "assets/imgs/wordIcon.png";
+
+  date = formatDate(new Date(), 'dd/MM/yyyy', 'en');
+  date2 = new Date();
+
+  minutes = this.date2.getMinutes();
+  formatMinutes = this.minutes > 9 ? this.minutes : '0' + this.minutes;
+  time = new Date().getHours() + ':' + this.formatMinutes;
+
   cmdAnimation: boolean;
   folderAnimation: boolean;
   notepadAnimation: boolean;
   wordEducationAnimation: boolean;
   wordExperienceAnimation: boolean;
+  binAnimation: boolean;
 
+  constructor(public _portfolioService: PortfolioserviceService) { }
+
+  
+  ngOnInit(): void {
+    this.loadCord();
+  }
 
   cmdAnimate() {
     this.cmdAnimation = false;
@@ -56,43 +91,20 @@ export class HomeComponent {
     }, 1);
   }
 
-
-  folder: string = "assets/imgs/w-folder.png";
-  recycle: string = "assets/imgs/bin-empty.webp";
-  cmd: string = "assets/imgs/cmd-icon.png";
-  notepad: string = "assets/imgs/notepad-icon.png";
-
-  recycleSound: string = "assets/sound/recycle.mp3";
-
-  cmdShow: boolean = true;
-  folderShow: boolean = true;
-  notepadShow: boolean = true;
-
-  recycleBinCoordinates = {x: 0, y: 0};
-  extimatedCoordinates = {x: 0, y: 0};
-
-  windows: string = "assets/imgs/w11-logo.png";
-  cmdIcon: string = "assets/imgs/cmd-icon.png";
-  folderIcon: string = "assets/imgs/w-folder.png";
-  notepadIcon: string = "assets/imgs/notepad-icon.png";
-  wordIcon: string = "assets/imgs/wordIcon.png";
-
-  date = formatDate(new Date(), 'dd/MM/yyyy', 'en');
-  date2 = new Date();
-
-  minutes = this.date2.getMinutes();
-  formatMinutes = this.minutes > 9 ? this.minutes : '0' + this.minutes;
-  time = new Date().getHours() + ':' + this.formatMinutes;
-
-
-  constructor(public _portfolioService: PortfolioserviceService) { }
+  binAnimate() {
+    this.binAnimation = false;
+    setTimeout(() => {
+      this.binAnimation = true;
+    }, 1);
+  }
   
-  dragIndex(cmd: string, notepad: string, folder: string, wordEdu: string, wordExp: string){
+  dragIndex(cmd: string, notepad: string, folder: string, wordEdu: string, wordExp: string, bin: string){
     document.getElementById("grid-cmd").style.zIndex = cmd;
     document.getElementById("grid-notepad").style.zIndex = notepad;
     document.getElementById("grid-folder").style.zIndex = folder;
     document.getElementById("wordEducation").style.zIndex = wordEdu;
     document.getElementById("wordExperience").style.zIndex = wordExp;
+    document.getElementById("recycle-bin").style.zIndex = bin;
   }
 
 
@@ -101,16 +113,25 @@ export class HomeComponent {
       case "cmd":
         this._portfolioService.cmdWindow = false;
         this.cmdShow = false;
+        this._portfolioService.trashCmd = true;
+        this._portfolioService.emptyBin = false;
+        this._portfolioService.recycleBinCount++;
         break;
       case "notepad":
         this._portfolioService.notepadWindow = false;
         this.notepadShow = false;
+        this._portfolioService.trashNotepad = true;
+        this._portfolioService.emptyBin = false;
+        this._portfolioService.recycleBinCount++;
         break;
       case "folder":
         this._portfolioService.folderWindow = false;
         this._portfolioService.wordEducation = false;
         this._portfolioService.wordExperience = false;
         this.folderShow = false;
+        this._portfolioService.trashFolder = true;
+        this._portfolioService.emptyBin = false;
+        this._portfolioService.recycleBinCount++;
         break;
     }
     this.playAudio(this.recycleSound);
@@ -134,6 +155,9 @@ export class HomeComponent {
       case "wordExperience":
         this._portfolioService.wordExperience = false;
       break;
+      case "recycle":
+        this._portfolioService.recycleBin = false;
+      break;
     }
   }
 
@@ -141,28 +165,33 @@ export class HomeComponent {
     switch(btn){
       case "cmd":
         this._portfolioService.cmdWindow = true;
-        this.dragIndex('2', '1', '1', '1', '1');
+        this.dragIndex('2', '1', '1', '1', '1', '1');
         this.cmdAnimate();
       break;
       case "notepad":
         this._portfolioService.notepadWindow = true;
-        this.dragIndex('1', '2', '1', '1', '1');
+        this.dragIndex('1', '2', '1', '1', '1', '1');
         this.notepadAnimate();
       break;
       case "folder":
         this._portfolioService.folderWindow = true;
-        this.dragIndex('1', '1', '2', '1', '1');
+        this.dragIndex('1', '1', '2', '1', '1', '1');
         this.folderAnimate();
       break;
       case "wordEducation":
         this._portfolioService.wordEducation = true;
-        this.dragIndex('1', '1', '1', '2', '1');
+        this.dragIndex('1', '1', '1', '2', '1', '1');
         this.wordEducationAnimate();
       break;
       case "wordExperience":
         this._portfolioService.wordExperience = true;
-        this.dragIndex('1', '1', '1', '1', '2');
+        this.dragIndex('1', '1', '1', '1', '2', '1');
         this.wordExperienceAnimate();
+      break;
+      case "recycleBin":
+        this._portfolioService.recycleBin = true;
+        this.dragIndex('1', '1', '1', '1', '1', '2');
+        this.binAnimate();
       break;
     }
   }
@@ -187,13 +216,54 @@ export class HomeComponent {
     }
   }
 
+  loadCord(){
+    if (typeof document !== 'undefined') {
+      var div = document.getElementById("bin");
+      var bin = div.getBoundingClientRect();
+      console.log("X: " + bin.x + " Y: " + bin.y);
+      this.itemFromBin.x = bin.x;
+      this.itemFromBin.y = bin.y;
+    }
+  }
+
   getCord($event: CdkDragStart){
     var div = document.getElementById("bin");
-    var rect = div.getBoundingClientRect();
-    console.log("Coordinates: " + rect.left + "px, " + rect.top + "px");
-    this.recycleBinCoordinates = $event.source.getFreeDragPosition();
-    console.log("RECYCLE CORD: " + this.recycleBinCoordinates.x + " " + this.recycleBinCoordinates.y);
+    var bin = div.getBoundingClientRect();
+    //console.log("X: " + bin.x + " Y: " + bin.y);
+    this.itemFromBin.x = bin.x;
+    this.itemFromBin.y = bin.y;
+    //console.log("ITEM FROM BIN: " + this.itemFromBin.x + " " + this.itemFromBin.y);
+    //this.recycleBinCoordinates = $event.source.getFreeDragPosition();
+    //console.log("RECYCLE CORD: " + this.recycleBinCoordinates.x + " " + this.recycleBinCoordinates.y);
     //console.log($event.source.getFreeDragPosition());
+  }
+
+  removeFromBin(id: string){
+
+    switch(id){
+      case "cmd":
+        this.cmdShow = true;
+        this._portfolioService.trashCmd = false;
+        this._portfolioService.recycleBinCount--;
+      break;
+
+      case "notepad":
+        this.notepadShow = true;
+        this._portfolioService.trashNotepad = false;
+        this._portfolioService.recycleBinCount--;
+      break;
+
+      case "folder":
+        this.folderShow = true;
+        this._portfolioService.trashFolder = false;
+        this._portfolioService.recycleBinCount--;
+      break;
+    }
+
+    if(this._portfolioService.recycleBinCount === 0){
+      this.recycle = "assets/imgs/bin-empty.webp";
+    }
+
   }
 
   playAudio(sound: string){

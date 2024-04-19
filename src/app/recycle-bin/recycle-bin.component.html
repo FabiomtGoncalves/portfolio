@@ -1,0 +1,28 @@
+
+<div class="container">
+    <img class="folder" [src]="binFolder" /> 
+    <div class="closeBtn">
+        <button class="btnClose" (click)="this._home.close('recycle')">X</button>
+    </div>
+
+    <div class="txt-empty" *ngIf="this._portfolioService.recycleBinCount == 0">
+        <p class="bin-txt">Recycle bin is empty.</p>
+    </div>
+
+    <div class="btns btns-align">
+        <button class="square-button btns-align" *ngIf="this._portfolioService.trashCmd" (click)="this._home.removeFromBin('cmd')">
+            <img class="pdf-img" [src]="cmd"/><br/>
+            <span>cmd</span>
+        </button>
+        <button class="square-button btns-align" *ngIf="this._portfolioService.trashNotepad" (click)="this._home.removeFromBin('notepad')"> 
+            <img class="notepad" [src]="notepad"/><br/>
+            <span>Untitled</span>
+        </button>
+        <button class="square-button btns-align" *ngIf="this._portfolioService.trashFolder" (click)="this._home.removeFromBin('folder')">
+            <img class="pdf-img" [src]="folder"/><br/>
+            <span>About me</span>
+        </button>
+    </div>
+
+    
+</div>

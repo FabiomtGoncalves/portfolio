@@ -14,6 +14,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {ScrollingModule} from '@angular/cdk/scrolling';
 import { WordComponent } from './word/word.component';
 import { WordExperienceComponent } from './word-experience/word-experience.component';
+import { RecycleBinComponent } from './recycle-bin/recycle-bin.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { WordExperienceComponent } from './word-experience/word-experience.compo
     FolderComponent,
     NotepadComponent,
     WordComponent,
-    WordExperienceComponent
+    WordExperienceComponent,
+    RecycleBinComponent
   ],
   imports: [
     BrowserModule,

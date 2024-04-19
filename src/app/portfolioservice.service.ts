@@ -11,6 +11,10 @@ export class PortfolioserviceService {
   public wordEducation: boolean = false;
   public wordExperience: boolean = false;
 
+  public recycleBin: boolean = false;
+  public emptyBin: boolean = true;
+  public recycleBinCount: number = 0;
+
   public trashCmd: boolean = false;
   public trashFolder: boolean = false;
   public trashNotepad: boolean = false;

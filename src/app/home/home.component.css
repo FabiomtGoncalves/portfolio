@@ -4,12 +4,6 @@ div{
 }
 
 
-.container {
-    position: relative;
-    width: 100%;
-    height: 100%;
-}
-
 
 .cima{
     z-index: 100;
@@ -175,6 +169,15 @@ img:active{
 }
 
 .wordExperience{
+    position: absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    margin:auto;
+}
+
+.recycle-bin{
     position: absolute;
     top:0;
     left:0;

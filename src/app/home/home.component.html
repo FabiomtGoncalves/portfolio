@@ -3,13 +3,19 @@
 
 <div class="container">
 
-    <div class="wordEducation" id="wordEducation" cdkDrag (cdkDragStarted)="dragIndex('1', '1', '1', '2', '1')" (click)="dragIndex('1', '1', '1', '2', '1')">
+    <div class="recycle-bin" id="recycle-bin" cdkDrag (cdkDragStarted)="dragIndex('1', '1', '1', '1', '1', '2')" (click)="dragIndex('1', '1', '1', '1', '1', '2')">
+        <div [@pulse]="binAnimation">
+            <app-recycle-bin *ngIf="this._portfolioService.recycleBin"></app-recycle-bin>
+        </div>
+    </div>
+
+    <div class="wordEducation" id="wordEducation" cdkDrag (cdkDragStarted)="dragIndex('1', '1', '1', '2', '1', '1')" (click)="dragIndex('1', '1', '1', '2', '1', '1')">
         <div [@pulse]="wordEducationAnimation">
             <app-word *ngIf="this._portfolioService.wordEducation"></app-word>
         </div>
     </div>
 
-    <div class="wordExperience" id="wordExperience" cdkDrag (cdkDragStarted)="dragIndex('1', '1', '1', '1', '2')" (click)="dragIndex('1', '1', '1', '1', '2')">
+    <div class="wordExperience" id="wordExperience" cdkDrag (cdkDragStarted)="dragIndex('1', '1', '1', '1', '2', '1')" (click)="dragIndex('1', '1', '1', '1', '2', '1')">
         <div [@pulse]="wordExperienceAnimation">
             <app-word-experience *ngIf="this._portfolioService.wordExperience"></app-word-experience>
         </div>
@@ -31,7 +37,7 @@
         <span>cmd</span>
     </button>
 
-    <button id="bin" class="square-button folder" (cdkDragStarted)="getCord($event)" cdkDrag>
+    <button id="bin" class="square-button folder" (cdkDragEnded)="getCord($event)" cdkDrag (click)="open('recycleBin')">
         <img class="small-img" [src]="recycle"/><br/>
         <span>Recycle Bin</span>
     </button>
@@ -39,19 +45,19 @@
     <div class="grid-container">
         <!--<button class="hiddenBtn" type="hidden" (window:keypress)="projectsEnter($event)"></button>-->
     
-        <div class="grid-cmd" id="grid-cmd" cdkDrag (cdkDragStarted)="dragIndex('2', '1', '1', '1', '1')" (click)="dragIndex('2', '1', '1', '1', '1')">
+        <div class="grid-cmd" id="grid-cmd" cdkDrag (cdkDragStarted)="dragIndex('2', '1', '1', '1', '1', '1')" (click)="dragIndex('2', '1', '1', '1', '1', '1')">
             <div [@pulse]="cmdAnimation">
                 <app-cmd class="cima" *ngIf="this._portfolioService.cmdWindow"></app-cmd>
             </div>
         </div>
 
-        <div class="grid-folder" id="grid-folder" cdkDrag (cdkDragStarted)="dragIndex('1', '1', '2', '1', '1')" >
+        <div class="grid-folder" id="grid-folder" cdkDrag (cdkDragStarted)="dragIndex('1', '1', '2', '1', '1', '1')" >
             <div [@pulse]="folderAnimation">
                 <app-folder *ngIf="this._portfolioService.folderWindow"></app-folder>
             </div>
         </div>  
     
-        <div class="grid-notepad" id="grid-notepad" cdkDrag (cdkDragStarted)="dragIndex('1', '2', '1', '1', '1')" (click)="dragIndex('1', '2', '1', '1', '1')">
+        <div class="grid-notepad" id="grid-notepad" cdkDrag (cdkDragStarted)="dragIndex('1', '2', '1', '1', '1', '1')" (click)="dragIndex('1', '2', '1', '1', '1', '1')">
             <div [@pulse]="notepadAnimation">
                 <app-notepad *ngIf="this._portfolioService.notepadWindow"></app-notepad>
             </div>
@@ -87,6 +93,10 @@
 
             <button class="footer-button" *ngIf="this._portfolioService.wordExperience" (click)="open('wordExperience')">
                 <img class="footer-img" [src]="wordIcon"/><br/>
+            </button>
+
+            <button class="footer-button" *ngIf="this._portfolioService.recycleBin" (click)="open('recycleBin')">
+                <img class="footer-img" [src]="recycle"/><br/>
             </button>
 
         </div>
