@@ -1,6 +1,7 @@
 # Portfolio  
 
 <p align="center">
+    [![Portfolio_link](https://skillicons.dev/icons?i=windows)](https://fabiomtgoncalves.github.io/portfolio)
     <img src="https://skillicons.dev/icons?i=windows" />  
     <br/>
     <a href="https://fabiomtgoncalves.github.io/portfolio/">Windows 11 theme based portfolio.</a>
