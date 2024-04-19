@@ -3,9 +3,15 @@
 
 <div class="container">
 
-    <div class="wordEducation" id="wordEducation" (cdkDragStarted)="dragIndex('1', '1', '1', '2')" (click)="dragIndex('1', '1', '1', '2')" cdkDrag>
+    <div class="wordEducation" id="wordEducation" cdkDrag (cdkDragStarted)="dragIndex('1', '1', '1', '2', '1')" (click)="dragIndex('1', '1', '1', '2', '1')">
         <div [@pulse]="wordEducationAnimation">
             <app-word *ngIf="this._portfolioService.wordEducation"></app-word>
+        </div>
+    </div>
+
+    <div class="wordExperience" id="wordExperience" cdkDrag (cdkDragStarted)="dragIndex('1', '1', '1', '1', '2')" (click)="dragIndex('1', '1', '1', '1', '2')">
+        <div [@pulse]="wordExperienceAnimation">
+            <app-word-experience *ngIf="this._portfolioService.wordExperience"></app-word-experience>
         </div>
     </div>
     
@@ -33,19 +39,19 @@
     <div class="grid-container">
         <!--<button class="hiddenBtn" type="hidden" (window:keypress)="projectsEnter($event)"></button>-->
     
-        <div class="grid-cmd" id="grid-cmd" cdkDrag (cdkDragStarted)="dragIndex('2', '1', '1', '1')" (click)="dragIndex('2', '1', '1', '1')">
+        <div class="grid-cmd" id="grid-cmd" cdkDrag (cdkDragStarted)="dragIndex('2', '1', '1', '1', '1')" (click)="dragIndex('2', '1', '1', '1', '1')">
             <div [@pulse]="cmdAnimation">
                 <app-cmd class="cima" *ngIf="this._portfolioService.cmdWindow"></app-cmd>
             </div>
         </div>
 
-        <div class="grid-folder" id="grid-folder" cdkDrag (cdkDragStarted)="dragIndex('1', '1', '2', '1')" (click)="dragIndex('1', '1', '2', '1')">
+        <div class="grid-folder" id="grid-folder" cdkDrag (cdkDragStarted)="dragIndex('1', '1', '2', '1', '1')" >
             <div [@pulse]="folderAnimation">
                 <app-folder *ngIf="this._portfolioService.folderWindow"></app-folder>
             </div>
         </div>  
     
-        <div class="grid-notepad" id="grid-notepad" cdkDrag (cdkDragStarted)="dragIndex('1', '2', '1', '1')" (click)="dragIndex('1', '2', '1', '1')">
+        <div class="grid-notepad" id="grid-notepad" cdkDrag (cdkDragStarted)="dragIndex('1', '2', '1', '1', '1')" (click)="dragIndex('1', '2', '1', '1', '1')">
             <div [@pulse]="notepadAnimation">
                 <app-notepad *ngIf="this._portfolioService.notepadWindow"></app-notepad>
             </div>
@@ -59,7 +65,7 @@
     <div class="inline">
         <div class="center inline">
 
-            <button class="footer-button">
+            <button class="footer-button" (click)="refresh()">
                 <img class="footer-img" [src]="windows"/><br/>
             </button>
 

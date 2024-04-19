@@ -1,0 +1,68 @@
+
+<div class="container">
+    <img class="folder" [src]="word" /> 
+    <div class="closeBtn">
+        <button class="btnClose" (click)="this._home.close('wordExperience')">X</button>
+    </div>
+    
+    <div class="center-doc">
+        <cdk-virtual-scroll-viewport id="commands" itemSize="99999" class="example-viewport">
+            <h1>Professional Experience</h1> <br/>
+            <img class="logo" [src]="eviden" /> 
+            <div class="pad">
+                <p class="company">Eviden, Faro, Portugal</p>
+                <span>December 2023 - Present</span>
+                <p><b>Application Developer</b></p>
+            </div>
+
+            <br/>
+            <hr/> 
+            <br/>
+
+            <img class="logo" [src]="repsol" /> 
+            <div class="pad">
+                <p class="company">Repsol Polímeros, S.A., Sines, Portugal</p>
+                <span>October 2022 - January 2023</span>
+                <p><b>Advanced Control and Systems</b></p>
+            </div>
+
+            <br/>
+            <hr/> 
+            <br/>
+
+            <img class="logo" [src]="emas" /> 
+            <div class="pad">
+                <p class="company">Beja Municipal Water and Sanitation Company, Beja, Portugal</p>
+                <span>March 2019 - June 2019</span>
+                <p><b>Network and Computer Systems Technician</b></p>
+            </div>
+
+            <br/>
+            <hr/> 
+            <br/>
+
+            <img class="logo" [src]="insidewash" /> 
+            <div class="pad">
+                <p class="company">InsideWash, Sines, Portugal</p>
+                <span>April 2017 - October 2017</span>
+                <p><b>Freelance Web Developer</b></p>
+            </div>
+
+            <br/>
+            <hr/> 
+            <br/>
+
+            <img class="logo" [src]="tml" /> 
+            <div class="pad">
+                <p class="company">Transportes Os Três Mosqueteiros Lda., Sines, Portugal</p>
+                <span>May 2016 - July 2016</span>
+                <p><b>IT Management</b></p>
+            </div>
+
+            <br/>
+
+        </cdk-virtual-scroll-viewport>
+
+    </div>
+
+</div>

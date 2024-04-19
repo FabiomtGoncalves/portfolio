@@ -13,6 +13,7 @@ import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {ScrollingModule} from '@angular/cdk/scrolling';
 import { WordComponent } from './word/word.component';
+import { WordExperienceComponent } from './word-experience/word-experience.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { WordComponent } from './word/word.component';
     CmdComponent,
     FolderComponent,
     NotepadComponent,
-    WordComponent
+    WordComponent,
+    WordExperienceComponent
   ],
   imports: [
     BrowserModule,

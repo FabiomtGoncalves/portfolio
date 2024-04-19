@@ -18,6 +18,7 @@ export class HomeComponent {
   folderAnimation: boolean;
   notepadAnimation: boolean;
   wordEducationAnimation: boolean;
+  wordExperienceAnimation: boolean;
 
 
   cmdAnimate() {
@@ -45,6 +46,13 @@ export class HomeComponent {
     this.wordEducationAnimation = false;
     setTimeout(() => {
       this.wordEducationAnimation = true;
+    }, 1);
+  }
+
+  wordExperienceAnimate() {
+    this.wordExperienceAnimation = false;
+    setTimeout(() => {
+      this.wordExperienceAnimation = true;
     }, 1);
   }
 
@@ -79,11 +87,12 @@ export class HomeComponent {
 
   constructor(public _portfolioService: PortfolioserviceService) { }
   
-  dragIndex(cmd: string, notepad: string, folder: string, wordEdu: string){
+  dragIndex(cmd: string, notepad: string, folder: string, wordEdu: string, wordExp: string){
     document.getElementById("grid-cmd").style.zIndex = cmd;
     document.getElementById("grid-notepad").style.zIndex = notepad;
     document.getElementById("grid-folder").style.zIndex = folder;
     document.getElementById("wordEducation").style.zIndex = wordEdu;
+    document.getElementById("wordExperience").style.zIndex = wordExp;
   }
 
 
@@ -132,23 +141,28 @@ export class HomeComponent {
     switch(btn){
       case "cmd":
         this._portfolioService.cmdWindow = true;
-        this.dragIndex('2', '1', '1', '1');
+        this.dragIndex('2', '1', '1', '1', '1');
         this.cmdAnimate();
       break;
       case "notepad":
         this._portfolioService.notepadWindow = true;
-        this.dragIndex('1', '2', '1', '1');
+        this.dragIndex('1', '2', '1', '1', '1');
         this.notepadAnimate();
       break;
       case "folder":
         this._portfolioService.folderWindow = true;
-        this.dragIndex('1', '1', '2', '1');
+        this.dragIndex('1', '1', '2', '1', '1');
         this.folderAnimate();
       break;
       case "wordEducation":
-        this.dragIndex('1', '1', '1', '2');
         this._portfolioService.wordEducation = true;
+        this.dragIndex('1', '1', '1', '2', '1');
         this.wordEducationAnimate();
+      break;
+      case "wordExperience":
+        this._portfolioService.wordExperience = true;
+        this.dragIndex('1', '1', '1', '1', '2');
+        this.wordExperienceAnimate();
       break;
     }
   }
@@ -206,6 +220,10 @@ export class HomeComponent {
     }
    }*/
   
+
+  refresh(): void {
+    window.location.reload();
+  }
 
 
 }
